@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+
+<h3>Характеристики</h3>
+<% @product_features.each do |item| %>
+  <option value="<%= item.name %>"><%= "#{item.name}: #{item.value} " %></option>
+<% end %>
+
+<div>
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+
+  <%= button_to "Destroy this product", @product, method: :delete %>
+</div>

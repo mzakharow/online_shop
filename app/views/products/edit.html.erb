@@ -1,0 +1,41 @@
+<h1>Editing product</h1>
+
+<%= render "form", product: @product %>
+
+<%#= @product.product_features.each do |item| %>
+<!--  <p>-->
+     <%#= "Параметр: #{item.name}: #{item.value}" %>
+<!--  </p>-->
+<%# end %>
+
+<% @product_features.each do |item| %>
+  <option value="<%= item.name %>"><%= "#{item.name}: #{item.value} " %></option>
+<% end %>
+
+<%= form_for([ @product, @product.product_features.build ]) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%#= form_with model: [ @product, ProductFeature.new ] do |form| %>
+<!--  Features: <br>-->
+  <%#= form.text_area :name %>
+  <%#= form.text_area :value %>
+  <%#= form.submit %>
+<%# end %>
+<br>
+
+<div>
+  <%= link_to "Show this product", @product %> |
+  <%= link_to "Back to products", products_path %>
+</div>
