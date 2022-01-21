@@ -7,6 +7,8 @@
   <option value="<%= item.name %>"><%= "#{item.name}: #{item.value} " %></option>
 <% end %>
 
+<%= button_to 'В корзину', cart_items_path(product_id: @product.id) %>
+
 <div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |
   <%= link_to "Back to products", products_path %>

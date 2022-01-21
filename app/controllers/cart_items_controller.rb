@@ -21,8 +21,12 @@ class CartItemsController < ApplicationController
 
   def create
     # @cart_item = CartItem.new(cart_item_params)
-    product = Product.find(params[:feature]) # Product.find(params[:item]) ?!?!
-    @cart_item = @cart.add_product(product.id)
+    # product = Product.find(params[:product_id]) # Product.find(params[:item]) ?!?!
+    # @cart_item = @cart.add_product(product.id)
+
+    product = Product.find(params[:product_id])
+    puts product.id
+    @cart_item = @cart.cart_items.build(product: product)
 
     respond_to do |format|
       if @cart_item.save
