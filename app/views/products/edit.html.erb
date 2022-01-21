@@ -8,6 +8,26 @@
 <!--  </p>-->
 <%# end %>
 
+<%= form_for([@product]) do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%=f.file_field :picture %>
+  </p>
+  <p>
+    <%#= image_tag @product.picture %>
+    <%= image_tag(@product.picture.url, alt: 'Image') if @product.picture? %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
 <% @product_features.each do |item| %>
   <option value="<%= item.name %>"><%= "#{item.name}: #{item.value} " %></option>
 <% end %>

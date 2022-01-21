@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :cart_items
+  resource :cart_items
   resources :carts
+
   root "categories#index"
   resources :products do
     resources :product_features

@@ -1,5 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to @product do %>
+  <%= image_tag(@product.picture.url, alt: 'Image') if @product.picture? %>
+<% end %>
+
 <%= render @product %>
 
 <h3>Характеристики</h3>

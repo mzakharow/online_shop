@@ -2,6 +2,10 @@
 
 <%= render @cart %>
 
+<% @cart.cart_items.each do |item| %>
+  <%= link_to "#{item.product.title}", product_path(item.product) %> <%= "#{item.product.quantity} шт." %>
+<% end %>
+
 <div>
   <%= link_to "Edit this cart", edit_cart_path(@cart) %> |
   <%= link_to "Back to carts", carts_path %>
